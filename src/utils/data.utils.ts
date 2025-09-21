@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const DATA_FILE: string = path.join(__dirname, 'restaurants.json');
+const DATA_FILE: string = path.join(__dirname, '../../data/restaurants.json');
 
 // Initialisation du fichier de données
 export async function initData(): Promise<void> {
