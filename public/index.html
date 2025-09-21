@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Restaurant Midi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .add-form {
+            padding: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            background: #fafafa;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .restaurants-list {
+            padding: 30px;
+        }
+
+        .restaurant-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .restaurant-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .vote-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .vote-count {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            min-width: 50px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+        }
+
+        .vote-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #51cf66, #37b24d);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vote-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(81, 207, 102, 0.4);
+        }
+
+        .vote-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .voted-message {
+            color: #37b24d;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            padding: 40px;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .restaurant-item {
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .restaurant-item {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .vote-section {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Vote Restaurant</h1>
+            <p>Choisis où aller manger ce midi !</p>
+        </div>
+
+        <div class="add-form">
+            <div class="form-group">
+                <input type="text" id="restaurantInput" placeholder="Nom du restaurant" maxlength="100">
+                <button class="btn" onclick="addRestaurant()">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="restaurants-list">
+            <div id="restaurantsList"></div>
+        </div>
+    </div>
+
+    <script>
+        let restaurants = [];
+        let hasVoted = false;
+
+        // Initialisation
+        function init() {
+            loadData();
+            checkVotingStatus();
+            renderRestaurants();
+        }
+
+        // Chargement des données depuis localStorage
+        function loadData() {
+            const stored = localStorage.getItem('restaurants');
+            if (stored) {
+                restaurants = JSON.parse(stored);
+            }
+        }
+
+        // Sauvegarde des données
+        function saveData() {
+            localStorage.setItem('restaurants', JSON.stringify(restaurants));
+        }
+
+        // Vérification du statut de vote via cookies
+        function checkVotingStatus() {
+            hasVoted = document.cookie.includes('hasVoted=true');
+        }
+
+        // Définition du cookie de vote
+        function setVotedCookie() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.cookie = `hasVoted=true; expires=${tomorrow.toUTCString()}; path=/`;
+            hasVoted = true;
+        }
+
+        // Ajout d'un restaurant
+        function addRestaurant() {
+            const input = document.getElementById('restaurantInput');
+            const name = input.value.trim();
+
+            if (!name) return;
+
+            // Vérification des doublons
+            if (restaurants.some(r => r.name.toLowerCase() === name.toLowerCase())) {
+                alert('Ce restaurant existe déjà !');
+                return;
+            }
+
+            restaurants.push({
+                id: Date.now(),
+                name: name,
+                votes: 0
+            });
+
+            input.value = '';
+            saveData();
+            renderRestaurants();
+        }
+
+        // Vote pour un restaurant
+        function vote(id) {
+            if (hasVoted) return;
+
+            const restaurant = restaurants.find(r => r.id === id);
+            if (restaurant) {
+                restaurant.votes++;
+                setVotedCookie();
+                saveData();
+                renderRestaurants();
+            }
+        }
+
+        // Rendu de la liste des restaurants
+        function renderRestaurants() {
+            const container = document.getElementById('restaurantsList');
+
+            if (restaurants.length === 0) {
+                container.innerHTML = '<div class="empty-state">Aucun restaurant proposé pour le moment</div>';
+                return;
+            }
+
+            // Tri par nombre de votes décroissant
+            const sortedRestaurants = [...restaurants].sort((a, b) => b.votes - a.votes);
+
+            container.innerHTML = sortedRestaurants.map(restaurant => `
+                <div class="restaurant-item">
+                    <div class="restaurant-name">${restaurant.name}</div>
+                    <div class="vote-section">
+                        <div class="vote-count">${restaurant.votes}</div>
+                        ${hasVoted ? 
+                            '<div class="voted-message">Déjà voté</div>' :
+                            `<button class="vote-btn" onclick="vote(${restaurant.id})">Voter</button>`
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Gestion de l'entrée clavier
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('restaurantInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    addRestaurant();
+                }
+            });
+            
+            init();
+        });
+    </script>
+</body>
+</html>
