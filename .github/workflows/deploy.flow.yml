@@ -59,11 +59,11 @@ jobs:
             npm install --only=production
             pm2 start dist/server.js --name onmangeou || pm2 restart onmangeou
       
-      - name: Reload Apache server
+      - name: Restart Apache server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.PROD_SERVER_IP }}
           username: ${{ secrets.PROD_SERVER_USER }}
           key: ${{ secrets.PROD_SERVER_PRIVATE_KEY }}
           script: |
-            sudo systemctl reload apache2
+            sudo systemctl restart apache2
