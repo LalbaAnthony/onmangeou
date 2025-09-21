@@ -4,8 +4,9 @@
     - [x] POST /api/restaurants/:id/vote - Voter
 - [x] Faire nom de domaine + pipe + MEP
 
-- [ ] Add icons
-- [ ] make PWA wth manifest
-- [ ] register IP + user-agent pour éviter les votes multiples
 - [ ] Ajouter cron pour clean les proposition tout les jours à 14h et à 6h du matin (archiver config dans cron.prod.sh)
+- [ ] register IP + user-agent pour éviter les votes multiples
 - [ ] Refaire front sans patte Claude
+- [ ] Relier front et back
+- [ ] Add icons
+- [ ] make PWA with manifest
