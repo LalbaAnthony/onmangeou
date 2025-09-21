@@ -69,6 +69,15 @@ jobs:
           script: |
             mv /var/www/html/${{ secrets.PROD_FOLDER }}/.env.prod /var/www/html/${{ secrets.PROD_FOLDER }}/.env
 
+      - name: Create data folder if not exists
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_SERVER_IP }}
+          username: ${{ secrets.PROD_SERVER_USER }}
+          key: ${{ secrets.PROD_SERVER_PRIVATE_KEY }}
+          script: |
+            cd /var/www/html/${{ secrets.PROD_FOLDER }} && mkdir -p data
+
       - name: Start/Restart Application with PM2
         uses: appleboy/ssh-action@v1.0.3
         with:
