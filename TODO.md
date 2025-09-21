@@ -2,6 +2,6 @@
 - [ ] Ajouter cron pour clean les proposition tout les jours à 14h et à 6h du matin (archiver config dans cron.prod.sh)
 - [ ] Refaire front sans patte Claude
 - [ ] API endpoints :
-    - [ ] GET /api/restaurants - Liste restaurants triés
-    - [ ] POST /api/restaurants - Ajouter restaurant
+    - [x] GET /api/restaurants - Liste restaurants triés
+    - [x] POST /api/restaurants - Ajouter restaurant
     - [ ] POST /api/restaurants/:id/vote - Voter : register IP + user-agent pour éviter les votes multiples

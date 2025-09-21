@@ -3,7 +3,6 @@ import path from 'path';
 
 const DATA_FILE: string = path.join(__dirname, '../../data/restaurants.json');
 
-// Initialisation du fichier de données
 export async function initData(): Promise<void> {
     try {
         await fs.access(DATA_FILE);
@@ -12,7 +11,6 @@ export async function initData(): Promise<void> {
     }
 }
 
-// Lecture des données
 export async function readData(): Promise<Restaurant[]> {
     try {
         const data: string = await fs.readFile(DATA_FILE, 'utf8');
@@ -46,7 +44,6 @@ export async function readData(): Promise<Restaurant[]> {
     }
 }
 
-// Écriture des données
 export async function writeData(data: Restaurant[]): Promise<void> {
     await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
 }

@@ -1,5 +1,4 @@
-import { readData, writeData } from "../utils/data.utils";
-
+import { readData, writeData } from '../datas/restaurant.data'
 export class RestaurantService {
   private generateId(restaurants: Restaurant[]): number {
     return restaurants.length > 0 ? Math.max(...restaurants.map(r => r.id)) + 1 : 1;

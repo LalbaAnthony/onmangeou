@@ -5,7 +5,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
-import { initData } from './utils/data.utils'
+import { initData } from './datas/restaurant.data'
 
 dotenv.config({ path: path.join(__dirname, '.env') })
 
