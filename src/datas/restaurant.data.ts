@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Restaurant } from '../types/restaurant.types';
 
 const DATA_FILE: string = path.join(__dirname, '../../data/restaurants.json');
 
