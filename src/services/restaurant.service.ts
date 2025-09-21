@@ -1,4 +1,5 @@
 import { readData, writeData } from '../datas/restaurant.data'
+import { Restaurant } from '../types/restaurant.types'
 export class RestaurantService {
   private generateId(restaurants: Restaurant[]): number {
     return restaurants.length > 0 ? Math.max(...restaurants.map(r => r.id)) + 1 : 1;
