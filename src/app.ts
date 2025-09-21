@@ -19,9 +19,9 @@ app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true }))
 
 // Serve the main HTML file at the root path
-app.get('/', (req: Request, res: Response): void => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+app.get('/', (req: Request, res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'index.html')) });
+app.get('/style.css', (req: Request, res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'style.css')) });
+app.get('/script.js', (req: Request, res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'script.js')) });
 
 // Health check
 app.get('/health', (req: Request, res: Response) => {
