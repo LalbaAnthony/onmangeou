@@ -2,7 +2,7 @@ import { RequestHandler } from 'express'
 import { restaurantService } from '../services/restaurant.service'
 
 export class RestaurantController {
-  public getAll: RequestHandler = async (req, res) => {
+  public getAll: RequestHandler = async (_req, res) => {
     const restaurants = await restaurantService.getAll()
 
     res.status(200).json({
