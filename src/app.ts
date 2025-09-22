@@ -25,7 +25,7 @@ app.get('/', (_req: Request, res: Response): void => {
 });
 
 // Health check
-app.get('/health', (res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({
     message: 'Server is healthy',
     timestamp: new Date().toISOString(),
@@ -36,13 +36,13 @@ app.get('/health', (res: Response) => {
 app.use('/api/restaurants', restaurantRoutes)
 
 // If nothing found above, return 404
-app.use((res: Response): void => {
-  res.status(404).json({ error: 'Route not found' } as Return);
-});
+app.use((_req: Request, res: Response): void => {
+  res.status(404).json({ error: 'Not found' })
+})
 
 // Global error handler
-app.use((err: Error, req: Request, res: Response): void => {
-  console.error('Unhandled error:', err, 'Request URL:', req.originalUrl);
+app.use((err: Error, _req: Request, res: Response): void => {
+  console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' } as Return);
 });
 
