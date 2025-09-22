@@ -32,7 +32,7 @@ app.get('/health', (res: Response) => {
 })
 
 // Register routes
-app.use('/restaurants', restaurantRoutes)
+app.use('/api/restaurants', restaurantRoutes)
 
 // If nothing found above, return 404
 app.use((res: Response): void => {
