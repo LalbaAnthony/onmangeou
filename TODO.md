@@ -4,6 +4,7 @@
     - [x] POST /api/restaurants/:id/vote - Voter
 - [x] Faire nom de domaine + pipe + MEP
 
+- [ ] Diviser responsabilité de datas pour pouvoir les reutiliser avec d'autres models
 - [ ] Ajouter cron pour clean les proposition tout les jours à 14h et à 6h du matin (archiver config dans cron.prod.sh)
 - [ ] register IP + user-agent pour éviter les votes multiples
 - [ ] Refaire front sans patte Claude
