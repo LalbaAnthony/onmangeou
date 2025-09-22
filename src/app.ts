@@ -10,7 +10,8 @@ const app: Express = express()
 app.use(cookieParser());
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
+
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json({ limit: '10mb' }))
@@ -19,9 +20,9 @@ app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true }))
 
 // Serve the main HTML file at the root path
-app.get('/', (res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'index.html')) });
-app.get('/style.css', (res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'style.css')) });
-app.get('/script.js', (res: Response): void => { res.sendFile(path.join(__dirname, 'public', 'script.js')) });
+app.get('/', (_req: Request, res: Response): void => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Health check
 app.get('/health', (res: Response) => {
