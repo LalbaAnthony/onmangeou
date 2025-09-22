@@ -7,9 +7,8 @@ import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import { initData } from './datas/restaurant.data'
 
-dotenv.config({ path: path.join(__dirname, '.env') })
-
-const PORT: number = parseInt(process.env.PORT ?? '3000', 10)
+// Config dotenv for the repo root
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 // Middleware to enhance security by setting various HTTP headers
 app.use(helmet())
@@ -30,8 +29,8 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }))
 async function startServer(): Promise<void> {
     try {
         await initData();
-        app.listen(PORT, (): void => {
-            console.log(`Server started on http://localhost:${PORT}`);
+        app.listen(process.env.PORT, (): void => {
+            console.log(`Server started on http://localhost:${process.env.PORT}`);
         });
     } catch (error) {
         console.error('Startup error:', error);
