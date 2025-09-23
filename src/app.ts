@@ -3,6 +3,7 @@ import { Return } from './types/api.types'
 import restaurantRoutes from './routes/restaurant.routes'
 import cookieParser from 'cookie-parser';
 import path from 'path'
+import './crons/restaurants.cron';
 
 const app: Express = express()
 
@@ -11,7 +12,6 @@ app.use(cookieParser());
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, '../public')));
-
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json({ limit: '10mb' }))
