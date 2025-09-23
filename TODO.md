@@ -6,8 +6,9 @@
 - [x] Diviser responsabilité de datas pour pouvoir les reutiliser avec d'autres models
 - [x] Ajouter cron pour clean les propositions tout les jours à 14h et à 6h du matin (archiver config dans cron.prod.sh)
 
-- [ ] register IP + user-agent pour éviter les votes multiples using https://chatgpt.com/share/68d2bc59-aab0-800a-9d82-4b1472101e2d
+- [ ] register IP + user-agent pour éviter les votes multiples using https://chatgpt.com/share/68d2bc59-aab0-800a-9d82-4b1472101e2d + https://amiunique.org/ ?
 - [ ] Refaire front sans patte Claude
 - [ ] Relier front et back
+- [ ] robots.txt
 - [ ] Add icons
 - [ ] make PWA with manifest
