@@ -68,6 +68,13 @@ export class RestaurantController {
       data: updated
     })
   }
+
+  public truncate: RequestHandler = async (_req, res) => {
+    await restaurantService.truncate()
+    res.status(200).json({
+      message: 'All restaurants deleted'
+    })
+  }
 }
 
 export const restaurantController = new RestaurantController()

@@ -43,6 +43,10 @@ export class RestaurantService {
     await writeData(restaurants);
     return restaurants[index];
   }
+
+  public async truncate(): Promise<void> {
+    await writeData([]);
+  }
 }
 
 export const restaurantService = new RestaurantService();
