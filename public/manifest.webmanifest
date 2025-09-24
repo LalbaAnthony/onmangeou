@@ -1,6 +1,13 @@
 {
   "name": "On mange où ?",
   "short_name": "On mange où ?",
+  "theme_color": "#f7f9fc",
+  "background_color": "#f7f9fc",
+  "description": "Un site pour se mettre d'accord sur où manger",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "fr",
+  "display": "standalone",
   "icons": [
     {
       "src": "assets/web-app-manifest-192x192.png",
@@ -14,8 +21,5 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "theme_color": "#f7f9fc",
-  "background_color": "#f7f9fc",
-  "display": "standalone"
+  ]
 }
