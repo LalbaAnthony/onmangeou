@@ -26,6 +26,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Prevent select */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -66,6 +70,13 @@ body {
     display: flex;
     gap: 15px;
     align-items: center;
+}
+
+input,
+textarea {
+    -webkit-user-select: all !important;
+    -ms-user-select: all !important;
+    user-select: all !important;
 }
 
 input[type="text"] {
