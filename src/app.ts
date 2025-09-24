@@ -35,9 +35,9 @@ app.get('/health', (_req: Request, res: Response) => {
 // Register routes
 app.use('/api/restaurants', restaurantRoutes)
 
-// If nothing found above, return 404
+// Redirect to home page for any unknown routes
 app.use((_req: Request, res: Response): void => {
-  res.status(404).json({ message: 'Not found' })
+  res.redirect('/');
 })
 
 // Global error handler
