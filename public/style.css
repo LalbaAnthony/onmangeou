@@ -66,6 +66,13 @@ body {
     padding: 30px;
 }
 
+.form-warn {
+    text-align: center;
+    color: var(--grey);
+    font-size: var(--font-size-sm);
+    margin-bottom: 15px;
+}
+
 .form-group {
     display: flex;
     gap: 15px;
