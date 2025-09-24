@@ -5,7 +5,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
-import { initData } from './datas/restaurant.data'
+import { initData } from './models/restaurant.model'
 
 // Config dotenv for the repo root
 dotenv.config({ path: path.resolve(__dirname, '../.env') });

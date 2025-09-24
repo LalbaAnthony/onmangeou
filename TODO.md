@@ -8,8 +8,8 @@
 - [x] robots.txt
 - [x] Relier front et back
 - [x] Refaire front sans patte Claude
+- [x] register IP + user-agent pour éviter les votes multiples using https://chatgpt.com/share/68d2bc59-aab0-800a-9d82-4b1472101e2d + https://amiunique.org/ ?
 
 - [ ] Enhance not found with a nice page cuz its also used in html view
-- [ ] register IP + user-agent pour éviter les votes multiples using https://chatgpt.com/share/68d2bc59-aab0-800a-9d82-4b1472101e2d + https://amiunique.org/ ?
 - [ ] Add icons
 - [ ] make PWA with manifest

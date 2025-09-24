@@ -37,13 +37,13 @@ app.use('/api/restaurants', restaurantRoutes)
 
 // If nothing found above, return 404
 app.use((_req: Request, res: Response): void => {
-  res.status(404).json({ error: 'Not found' })
+  res.status(404).json({ message: 'Not found' })
 })
 
 // Global error handler
 app.use((err: Error, _req: Request, res: Response): void => {
   console.error('Unhandled error:', err);
-  res.status(500).json({ error: 'Internal server error' } as Return);
+  res.status(500).json({ message: 'Internal server error' } as Return);
 });
 
 export default app

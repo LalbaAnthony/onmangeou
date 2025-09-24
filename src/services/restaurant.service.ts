@@ -1,4 +1,4 @@
-import { readData, writeData } from '../datas/restaurant.data'
+import { readData, writeData } from '../models/restaurant.model'
 import { Restaurant } from '../types/restaurant.types'
 export class RestaurantService {
   private generateId(restaurants: Restaurant[]): number {
