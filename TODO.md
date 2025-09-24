@@ -1,15 +1,1 @@
-- [x] API endpoints :
-    - [x] GET /api/restaurants - Liste restaurants triés
-    - [x] POST /api/restaurants - Ajouter restaurant
-    - [x] POST /api/restaurants/:id/vote - Voter
-- [x] Faire nom de domaine + pipe + MEP
-- [x] Diviser responsabilité de datas pour pouvoir les reutiliser avec d'autres models
-- [x] Ajouter cron pour clean les propositions tout les jours à 14h et à 6h du matin (archiver config dans cron.prod.sh)
-- [x] robots.txt
-- [x] Relier front et back
-- [x] Refaire front sans patte Claude
-- [x] register IP + user-agent pour éviter les votes multiples using https://chatgpt.com/share/68d2bc59-aab0-800a-9d82-4b1472101e2d + https://amiunique.org/ ?
-- [x] Enhance not found with a nice page cuz its also used in html view
-
-- [ ] Add icons
-- [ ] make PWA with manifest
+- [ ] ...
