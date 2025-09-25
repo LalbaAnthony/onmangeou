@@ -203,6 +203,13 @@ input[type="text"]:focus {
     margin: 20px 30px;
     border-radius: 8px;
     text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.error-message.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
 
 .loading {

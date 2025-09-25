@@ -29,7 +29,8 @@ function showError(message) {
     const container = document.querySelector('.container');
     container.insertBefore(errorDiv, container.children[1]);
 
-    setTimeout(() => errorDiv.remove(), 5000);
+    setTimeout(() => errorDiv.classList.add('hide'), 3000);
+    setTimeout(() => errorDiv.remove(), 3500);
 }
 
 async function apiCall(endpoint, options = {}) {
