@@ -131,9 +131,9 @@ function checkVotingStatus() {
 }
 
 function setVotedCookie() {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    document.cookie = `hasVoted=true; expires=${tomorrow.toUTCString()}; path=/`;
+    const inTwelveHours = new Date();
+    inTwelveHours.setHours(inTwelveHours.getHours() + 12);
+    document.cookie = `hasVoted=true; expires=${inTwelveHours.toUTCString()}; path=/`;
     hasVoted = true;
 }
 
