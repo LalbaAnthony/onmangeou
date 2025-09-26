@@ -116,9 +116,14 @@ input[type="text"]:focus {
     letter-spacing: 0.5px;
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .restaurants-list {
@@ -162,31 +167,6 @@ input[type="text"]:focus {
     font-size: 16px;
     min-width: 50px;
     text-align: center;
-}
-
-.vote-btn {
-    padding: 12px 20px;
-    background: var(--gradient-lapis-purple);
-    color: var(--white);
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.vote-btn:hover:not(:disabled) {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(81, 207, 102, 0.4);
-}
-
-.vote-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    opacity: 0.6;
 }
 
 .no-item {

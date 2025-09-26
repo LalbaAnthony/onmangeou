@@ -153,7 +153,7 @@ function renderRestaurants() {
             <div class="restaurant-name">${restaurant.name}</div>
             <div class="vote-section">
                 <div class="vote-count">${restaurant.votes} vote${restaurant.votes !== 1 ? 's' : ''}</div>
-                <button class="vote-btn" ${isLoading || hasVoted ? 'disabled' : ''} onclick="vote(${restaurant.id})">Voter</button>
+                <button class="vote-btn btn" ${isLoading || hasVoted ? 'disabled' : ''} onclick="vote(${restaurant.id})">Voter</button>
             </div>
         </div>
     `).join('');
