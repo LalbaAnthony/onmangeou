@@ -14,7 +14,7 @@ export class RestaurantController {
     const id = parseInt(req.params.id as string, 10)
 
     if (isNaN(id)) {
-      res.status(400).json({ message: 'Invalid restaurant ID' } as Return)
+      res.status(400).json({ message: 'Restaurant not found' } as Return)
       return
     }
 
@@ -31,7 +31,7 @@ export class RestaurantController {
     const { name } = req.body
 
     if (!name || typeof name !== 'string') {
-      res.status(400).json({ message: 'Invalid restaurant name' } as Return)
+      res.status(400).json({ message: 'Invalid request' } as Return)
       return
     }
 
@@ -65,7 +65,7 @@ export class RestaurantController {
 
     fingerprint.add(fp);
 
-    res.status(200).json({ message: 'Vote recorded', data: updated } as Return)
+    res.status(200).json({ message: 'Invalid request', data: updated } as Return)
   }
 
   public truncate: RequestHandler = async (_req: Request, res: Response) => {
