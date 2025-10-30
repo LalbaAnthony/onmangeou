@@ -23,7 +23,7 @@ app.use(cors({
 app.use(morgan('combined'))
 
 // Rate limiting
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }))
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 5 }))
 
 // Démarrage du serveur
 async function startServer(): Promise<void> {
