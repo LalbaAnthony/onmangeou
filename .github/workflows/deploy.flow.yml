@@ -87,7 +87,7 @@ jobs:
           script: |
             cd /var/www/html/${{ secrets.PROD_FOLDER }}
             npm install --only=production
-            pm2 start dist/server.js --name prod-onmangeou || pm2 restart prod-onmangeou
+            pm2 start dist/server.js --name onmangeou || pm2 restart onmangeou
       
       - name: Restart Apache server
         uses: appleboy/ssh-action@v1.0.3
