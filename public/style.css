@@ -79,6 +79,14 @@ body {
     align-items: center;
 }
 
+.bottom {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: var(--font-size-sm);
+    color: var(--grey);
+}
+
 input,
 textarea {
     -webkit-user-select: all !important;
