@@ -8,8 +8,10 @@ export const fingerprint = {
         const userAgent = req.headers["user-agent"] || "";
         const ip = req.headers["x-forwarded-for"] || "";
         const acceptLang = req.headers["accept-language"] || "";
+        const acceptEncoding = req.headers["accept-encoding"] || "";
+        const secChUa = req.headers["sec-ch-ua"] || "";
 
-        const raw = `${userAgent}|${ip}|${acceptLang}`;
+        const raw = `${userAgent}|${ip}|${acceptLang}|${acceptEncoding}|${secChUa}`;
         return crypto.createHash("sha256").update(raw).digest("hex");
     },
 
