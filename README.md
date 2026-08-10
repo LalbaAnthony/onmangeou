@@ -11,8 +11,8 @@ git clone git@github.com:LalbaAnthony/onmangeou.git
 # Move into the project directory
 cd onmangeou
 
-# Copy .env.development file to .env and fill in the required environment variables.
-cp .env.development .env
+# Copy .env.example file to .env and fill in the required environment variables.
+cp .env.example .env
 
 # Start the development server
 npm i ; npm run dev
