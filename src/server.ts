@@ -1,29 +1,9 @@
 import app from './app'
 import dotenv from 'dotenv'
 import path from 'path'
-import morgan from 'morgan'
-import cors from 'cors'
-import helmet from 'helmet'
-import rateLimit from 'express-rate-limit'
 import { initData } from './models/restaurant.model'
 
-// Config dotenv for the repo root
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
-
-// Middleware to enhance security by setting various HTTP headers
-app.use(helmet())
-
-// CORS middleware to allow cross-origin requests
-app.use(cors({
-    origin: true,
-    credentials: true
-}))
-
-// Logging middleware
-app.use(morgan('combined'))
-
-// Rate limiting
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }))
 
 // Démarrage du serveur
 async function startServer(): Promise<void> {

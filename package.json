@@ -21,9 +21,7 @@
     "helmet": "^8.1.0",
     "morgan": "^1.10.0",
     "node-cron": "^4.2.1",
-    "reflect-metadata": "^0.2.2",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2"
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.4",
@@ -39,7 +37,7 @@
     "globals": "^16.3.0",
     "jiti": "^2.5.1",
     "nodemon": "^3.1.10",
-    "rimraf": "^5.0.1",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3",

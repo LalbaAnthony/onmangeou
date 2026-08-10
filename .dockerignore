@@ -1,0 +1,34 @@
+# Build artifacts & dependencies (rebuilt inside the image)
+node_modules
+dist
+*.tsbuildinfo
+
+# VCS & CI
+.git
+.gitignore
+.gitattributes
+.github
+
+# Secrets — never bake them into a layer, they are injected at runtime
+.env
+.env.*
+!.env.example
+
+# Runtime state — persisted through a volume, not through the image
+data/*.json
+*.sqlite
+
+# Tooling / docs, irrelevant to the runtime
+README.md
+CLAUDE.md
+apache.conf
+eslint.config.mts
+Dockerfile.dev
+Dockerfile.prod
+docker-compose.yml
+.dockerignore
+.vscode
+.idea
+*.log
+npm-debug.log*
+coverage
