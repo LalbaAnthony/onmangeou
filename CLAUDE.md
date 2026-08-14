@@ -79,7 +79,7 @@ docker compose --profile production up -d --remove-orphans
 | Sources        | bind-mounted, hot reload       | compiled into `dist/`, baked in       |
 | `node_modules` | full tree                      | `--omit=dev` only                     |
 | User           | root (bind-mount write access) | `node` (unprivileged)                 |
-| Port binding   | `${PORT}:${PORT}`              | `127.0.0.1:${PORT}:${PORT}`           |
+| Port binding   | `${PORT}:3000`                 | `127.0.0.1:${PORT}:3000`              |
 | `data/`        | host bind mount                | named volume `onmangeou-data`         |
 | Healthcheck    | none                           | `GET /health` via Node global `fetch` |
 
@@ -87,8 +87,8 @@ Conventions:
 
 - **Never publish `app-prod` on `0.0.0.0`.** Apache terminates TLS and proxies to
   `127.0.0.1:4567`; the container port must stay on loopback.
-- `PORT` in `.env` **must match** the `ProxyPass` target in `apache.conf` (4567).
-- `TZ` is set explicitly because `node-cron` runs on container time — without it the
+- The container always listens on **3000** internally; `PORT` is the *host* port only.
+  It **must match** the `ProxyPass` target in `apache.conf` (4567).
   06:00 job fires at 06:00 UTC.
 - The `data/` volume is what makes state survive `down` + redeploy. Do not replace it
   with a bind mount to a path inside the deploy folder unless you also handle ownership
